@@ -13,7 +13,7 @@ export default class DB {
     }
 
      getConnection() {
-        return mongoose.getConnection();
+        return mongoose.connection();
     }
 
 }
