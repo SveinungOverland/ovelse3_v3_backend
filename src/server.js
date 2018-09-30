@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 5000;
 
 
 // Initialize db
-mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true });
+mongoose.connect(process.env.MONGODB_URI);
 
 
 
