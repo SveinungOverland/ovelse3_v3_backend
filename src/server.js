@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 5000;
 const URI = process.env.MONGODB_URI;
 console.log(URI);
 // Initialize db
-mongoose.connect(URI)
+mongoose.connect(URI, { useNewUrlParser: true })
     .catch(err => console.log(`Connection error: ${err}`))
 
 
