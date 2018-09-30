@@ -12,10 +12,11 @@ server.use(bodyParser.json());
 
 
 const PORT = process.env.PORT || 5000;
-
-
+const URI = process.env.MONGODB_URI;
+console.log(URI);
 // Initialize db
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(URI)
+    .catch(err -> console.log(`Connection error: ${err}`))
 
 
 
