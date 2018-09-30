@@ -6,7 +6,7 @@ var mongoose = require("mongoose");
 // Project imports
 var userRoutes = require("./routes/users");
 var server = express();
-server.use(bodyParser.json());
+server.use(bodyParser.json);
 // @ts-ignore
 var PORT = process.env.PORT || 5000;
 // @ts-ignore
