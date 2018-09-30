@@ -16,7 +16,7 @@ const URI = process.env.MONGODB_URI;
 console.log(URI);
 // Initialize db
 mongoose.connect(URI)
-    .catch(err -> console.log(`Connection error: ${err}`))
+    .catch(err => console.log(`Connection error: ${err}`))
 
 
 
