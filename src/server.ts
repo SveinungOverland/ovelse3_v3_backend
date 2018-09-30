@@ -8,7 +8,7 @@ import * as userRoutes from './routes/users';
 
 
 const server = express();
-server.use(bodyParser.json);
+server.use(bodyParser.json());
 
 // @ts-ignore
 const PORT = process.env.PORT || 5000;
