@@ -28,11 +28,15 @@ export async function checkPassword(userObject) { // username of type String, pa
             .then(user => {
                 bcrypt.compare(userObject.password, user.password)
                     .then(res => {
-                        if (res) resolve({status: 200, msg: "Login was successful", res: res });
-                        else reject({status: 401, msg: "Wrong login credentials", res: res });
+                        if (res) resolve({status: 200, msg: "Login was successful", res: true });
+                        else reject({status: 401, msg: "Wrong login credentials", res: false });
+                    })
+                    .catch(err => {
+                        console.log("Error at checkPassword: " + err);
+                        reject({status: 500, msg: "Something went wrong", res: err});
                     });
             })
-            .catch(reject);
+            .catch(err => reject({status: 401, msg: "Wrong login credentials", res: false}));
     });
 }
 
