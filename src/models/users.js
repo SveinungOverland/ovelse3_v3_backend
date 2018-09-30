@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
 const userSchema = mongoose.Schema({
-    _id: mongoose.Types.ObjectId,
-    username: String,
+    _id: mongoose.Schema.Types.ObjectId,
+    username: { type: String, unique: true },
     password: String
 });
 
