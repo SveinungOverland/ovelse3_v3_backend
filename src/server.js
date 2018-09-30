@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
 var body_parser_1 = require("body-parser");
 // Project imports
+// @ts-ignore
 var routes_1 = require("./routes");
 var db_1 = require("./db");
 var server = express_1.default();
