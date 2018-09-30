@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 
 
 // Initialize db
-DB.init();
+DB();
 
 
 server.use('/', routes);
