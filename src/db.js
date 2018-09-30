@@ -13,11 +13,7 @@ export default class DB {
     }
 
      getConnection() {
-        const connection = mongoose.getConnection();
-
-        console.log(typeof connection);
-
-        return connection;
+        return mongoose.getConnection();
     }
 
 }
