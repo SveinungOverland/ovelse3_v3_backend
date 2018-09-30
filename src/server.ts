@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 
 
 // Project imports
+// @ts-ignore
 import routes from './routes';
 import DB from './db';
 
