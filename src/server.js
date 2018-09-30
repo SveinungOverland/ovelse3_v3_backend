@@ -1,16 +1,27 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var express_1 = require("express");
-var body_parser_1 = require("body-parser");
+import express from 'express';
+import bodyParser from 'body-parser';
+
+
+
 // Project imports
-// @ts-ignore
-var routes_1 = require("./routes");
-var db_1 = require("./db");
-var server = express_1.default();
-server.use(body_parser_1.default.json());
-// @ts-ignore
-var PORT = process.env.PORT || 5000;
+import routes from './routes';
+import DB from './db';
+
+
+const server = express();
+server.use(bodyParser.json());
+
+
+const PORT = process.env.PORT || 5000;
+
+
 // Initialize db
-db_1.default.init();
-server.use('/', routes_1.default);
-server.listen(PORT, function () { return console.log("Listening on " + PORT); });
+DB.init();
+
+
+server.use('/', routes);
+
+
+server.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+
+
