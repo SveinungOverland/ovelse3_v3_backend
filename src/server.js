@@ -1,19 +1,29 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var express = require("express");
-var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+
+
 // Project imports
-var userRoutes = require("./routes/users");
-var server = express();
+import userRoutes from './routes/users';
+
+
+const server = express();
 server.use(bodyParser.json());
-// @ts-ignore
-var PORT = process.env.PORT || 5000;
-// @ts-ignore
-var URI = process.env.MONGODB_URI;
+
+
+const PORT = process.env.PORT || 5000;
+const URI = process.env.MONGODB_URI;
+
+
 // Initialize db
 mongoose.connect(URI, { useNewUrlParser: true })
-    .then(function (db) { return console.log("Database connected"); })
-    .catch(function (err) { return console.log("Connection error: " + err); });
+    .then(db => console.log("Database connected"))
+    .catch(err => console.log(`Connection error: ${err}`));
+
+
 server.use('/user', userRoutes);
-server.listen(PORT, function () { return console.log("Listening on " + PORT); });
+
+
+server.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+
+

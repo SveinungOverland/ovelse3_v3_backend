@@ -4,9 +4,9 @@ import express from 'express';
 // Project imports
 import { newUser, checkPassword } from "../actions/users";
 
+const router = module.exports = express.Router();
 
 
-const router = express.Router();
 
 router.get("/", (req, res) => {
     res.json({
@@ -28,6 +28,7 @@ router.post('/create', (req, res) => { // req should be { username, password }
         });
 });
 
+
 router.post('/login', (req, res) => { // req should be { username, password }
     console.log("Attempting login for user " + req.body.username);
     checkPassword(req.body)
@@ -40,6 +41,3 @@ router.post('/login', (req, res) => { // req should be { username, password }
             res.status(err.status).json(err);
         });
 });
-
-
-export default router;
