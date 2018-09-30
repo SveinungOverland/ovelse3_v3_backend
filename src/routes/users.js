@@ -1,9 +1,6 @@
 import express from 'express';
 
 
-// Project imports
-import User from './models/users';
-
 
 
 const router = module.exports = express.Router();

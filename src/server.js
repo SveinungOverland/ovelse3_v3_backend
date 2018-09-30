@@ -5,7 +5,6 @@ import mongoose from 'mongoose';
 
 // Project imports
 import userRoutes from './routes/users';
-import DB from './db';
 
 
 const server = express();
