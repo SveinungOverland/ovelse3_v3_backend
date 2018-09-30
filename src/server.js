@@ -1,10 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-
+import mongoose from 'mongoose';
 
 
 // Project imports
-import routes from './routes';
+import userRoutes from './routes/users';
 import DB from './db';
 
 
@@ -16,10 +16,13 @@ const PORT = process.env.PORT || 5000;
 
 
 // Initialize db
-DB();
+mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true })
+    .then(db -> console.log("Database connected"))
+    .catch(err -> console.log(`Connection error: ${ err }`));
 
 
-server.use('/', routes);
+
+server.use('/user', userRoutes);
 
 
 server.listen(PORT, () => console.log(`Listening on ${ PORT }`));
