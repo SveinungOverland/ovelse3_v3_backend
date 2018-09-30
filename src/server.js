@@ -16,9 +16,7 @@ const PORT = process.env.PORT || 5000;
 
 
 // Initialize db
-mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true })
-    .then(db -> console.log("Database connected"))
-    .catch(err -> console.log(`Connection error: ${ err }`));
+mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true });
 
 
 
