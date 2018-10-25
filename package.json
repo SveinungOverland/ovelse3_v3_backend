@@ -2,6 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Dette er backend delen av øvelse 3 som er laget i node",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "start": "npx babel-node ./src/server.js",
