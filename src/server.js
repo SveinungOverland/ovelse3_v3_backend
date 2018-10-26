@@ -7,7 +7,7 @@ import mongoose from 'mongoose';
 require('dotenv').config();
 
 // Project imports
-import userRoutes from './routes/users';
+import routes from './routes';
 
 
 const server = express();
@@ -23,9 +23,10 @@ mongoose.connect(URI, { useNewUrlParser: true })
     .catch(err => console.log(`Connection error: ${err}`));
 
 
-server.use('/user', userRoutes);
+server.use('/', routes);
 
 
 server.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 
+export default server;

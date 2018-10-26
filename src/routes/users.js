@@ -4,18 +4,23 @@ import express from 'express';
 // Project imports
 import { newUser, checkPassword } from "../actions/users";
 
-const router = module.exports = express.Router();
 
 
+const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.json({
-        msg: "Hello World"
-    })
-});
+router.route('/')
+    .get((req, res) => res.json({msg: "Hello, this is /user"}));
 
 
-router.post('/create', (req, res) => { // req should be { username, password }
+router.route('/create')
+    .post(handleCreateUser);
+
+
+router.route('/login')
+    .post(handleLogin);
+
+
+function handleCreateUser(req, res) {
     console.log("Attempting to create new user: " + req.body.username);
     newUser(req.body)
         .then(result => {
@@ -26,10 +31,10 @@ router.post('/create', (req, res) => { // req should be { username, password }
             console.log("Woops: " + JSON.stringify(err));
             res.status(err.status).json(err);
         });
-});
+}
 
 
-router.post('/login', (req, res) => { // req should be { username, password }
+function handleLogin(req, res) { // req should be { username, password }
     console.log("Attempting login for user " + req.body.username);
     checkPassword(req.body)
         .then(result => {
@@ -40,4 +45,11 @@ router.post('/login', (req, res) => { // req should be { username, password }
             console.log("Login attempt unsuccessful");
             res.status(err.status).json(err);
         });
-});
+}
+
+
+
+export default router;
+
+
+
