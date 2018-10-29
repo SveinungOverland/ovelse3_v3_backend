@@ -1,6 +1,6 @@
 // @flow
 
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 // BCrypt constants
 const saltRounds = 10; // THIS SHOULD NEVER BE CHANGED
